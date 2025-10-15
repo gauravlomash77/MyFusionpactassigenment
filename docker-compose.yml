@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: fusionpact-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app/data:/app/app/data  
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: fusionpact-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+networks:
+  default:
+    driver: bridge
