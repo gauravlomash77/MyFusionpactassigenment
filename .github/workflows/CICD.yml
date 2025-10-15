@@ -3,7 +3,7 @@ name: CI/CD to EC2
 on:
   push:
     branches:
-      - CICD # Deploy when main is updated
+      - main # Deploy when main is updated
   workflow_dispatch:
   
 jobs:
